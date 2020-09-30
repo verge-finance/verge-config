@@ -1,17 +1,26 @@
+## Network Configuration
 
-# Verge Config
+This folder contains the configuration for given networks (e.g. `rinkeby.json` is the configuration for the Rinkeby test-net). These configuration files are meant to be used to configure external applications (like dApps) and thus contain a base set of information that may be useful (such as the address the Comptroller and a list of cToken markets). These configuration files are auto-generated when doing local development.
 
-This repository contains all configuration for the Verge Protocol on Ethereum. Projects wishing to interact with Verge contracts will be able to find contract addresses, ABIs and interfaces for the core Verge contracts in this repo.
+Structure
+---------
 
-## Getting Started
-
-The `networks/` folder contains a pair of files per test net. These are `<network.json>` and `<network>-abi.json`. The former contains a list of all deployed and related contracts along with some basic JSON configuration for each. The ABI-file contains the ABI of all interesting contracts.
-
-## Additional Configuration
-
-This repo doesn't currently have additional configuration, but we encourage more information if it's directly useful to developers on the protocol. Feel free to create an issue or pull request.
-
-## Contributions
-
-For all changes that affect the core Protocol or are directly related to the core Protocol (e.g. underlying tokens, interest rate models, etc), please add the relevant configuration into the networks files.
-
+```json
+{
+  "Contracts": {
+    "MoneyMarket": "0x{address}",
+    "Migrations": "0x{address}",
+    "PriceOracle": "0x{address}",
+    "InterestRateModel": "0x{address}"
+  },
+  "Tokens": {
+    "{SYM}": {
+      "name": "{Full Name}",
+      "symbol": "{SYM}",
+      "decimals": 18,
+      "address": "0x{address}",
+      "supported": true
+    }
+  }
+}
+```
